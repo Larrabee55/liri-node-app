@@ -60,10 +60,7 @@ function movie() {
   var searching = process.argv[3];
   if (searching) {
     axios.get("http://www.omdbapi.com/?t=" + searching + "&apikey=trilogy").then(
-      function (err, response) {
-        if (err) {
-          console.log("Error Occurred: " + err);
-        }
+      function (response) {
         console.log("--------------------");
         // title + response.data.title
         console.log("Title: " + response.data.Title);
@@ -104,11 +101,7 @@ function movie() {
 function bands() {
   var searching = process.argv[3];
   axios.get("https://rest.bandsintown.com/artists/" + searching + "/events?app_id=codingbootcamp").then(
-    function (err, response) {
-      if (err) {
-        console.log('Error occurred: ' + err);
-        return;
-      }
+    function (response) {
       // pulls the first 10 responses
       for (var i = 0; i < response.data.length; i++) {
         if (i === 10) break
